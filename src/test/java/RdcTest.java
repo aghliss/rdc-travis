@@ -22,7 +22,7 @@ public class RdcTest {
     }
 
     @Test
-    public void basicTest() {
+    public void basicTest() throws InterruptedException {
         driver.navigate().to("https://saucelabs.com/pricing");
         ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
@@ -34,6 +34,12 @@ public class RdcTest {
 
         driver.navigate().to("https://mvnrepository.com/artifact/junit/junit/4.12");
         ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+        for (int i =0; i<100; i++){
+            driver.getPageSource();
+            Thread.sleep(500);
+        }
+
     }
 
     @After
